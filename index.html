@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Zahra Penyet Semarang | Ayam & Lele Penyet, Pesan via WhatsApp</title>
+<meta name="description" content="Zahra Penyet — aneka penyetan dengan sambal pilihan di Gayamsari, Semarang. Lihat menu, pesan online, dan konfirmasi lewat WhatsApp.">
+<meta name="theme-color" content="#1f7a4d">
+<meta property="og:type" content="restaurant">
+<meta property="og:title" content="Zahra Penyet — Pedasnya Bikin Nagih">
+<meta property="og:description" content="Aneka penyetan, sambal nampol, harga bersahabat. Pesan praktis lewat WhatsApp.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=1200&q=80">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="assets/images/logo-zahra-penyet.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<script>document.documentElement.classList.add("js")</script>
+</head>
+<body>
+<a class="skip" href="#menu">Langsung ke menu</a>
+<div class="announce" id="announce" hidden></div>
+
+<header class="topbar">
+  <a class="brand" href="#top" aria-label="Zahra Penyet — beranda"><img class="brand-logo" src="assets/images/logo-zahra-penyet.png" alt="Logo Zahra Penyet"><span class="brand-copy">ZAHRA <b>PENYET</b><small>RASA JUARA, HARGA BERSAHABAT</small></span></a>
+  <nav id="mainNav" aria-label="Navigasi utama"><a href="#menu">Menu</a><a href="#cara-pesan">Cara Pesan</a><a href="#tentang">Tentang</a><a href="#kontak">Kontak</a></nav>
+  <div class="top-actions">
+    <span class="status-pill" id="statusPill" hidden></span>
+    <button class="cart-button" id="openCart" aria-label="Buka keranjang">Keranjang <span id="cartCount">0</span></button>
+    <button class="menu-toggle" id="menuToggle" aria-label="Buka navigasi" aria-expanded="false" aria-controls="mainNav"><i></i><i></i><i></i></button>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="hero-copy">
+    <span class="eyebrow">SEGAR • HANGAT • NIKMAT</span>
+    <h1>Lauk mantap,<br><em>sambal nampol.</em></h1>
+    <p>Nikmati aneka penyetan dengan sambal pilihan, lalapan segar, dan rasa yang bikin ingin kembali.</p>
+    <div class="hero-actions"><a class="primary-btn" href="#menu">Lihat Menu <span>↗</span></a><a class="text-link" href="#tentang">Kenali kami</a></div>
+    <div class="hero-note"><span>🌶️</span> Dibuat saat dipesan, disajikan sepenuh hati.</div>
+  </div>
+  <div class="hero-art"><div class="hero-orbit"></div><img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=1000&q=85" alt="Ayam goreng renyah dengan sambal" fetchpriority="high" width="470" height="390"><div class="floating-tag"><b>Favorit</b><span>Ayam Penyet</span></div></div>
+</section>
+
+<section class="trust-strip"><div><b>🥬</b><span>Bahan segar pilihan</span></div><div><b>🌶️</b><span>Sambal racikan sendiri</span></div><div><b>💬</b><span>Pesan praktis via WhatsApp</span></div></section>
+
+<section class="menu-section section" id="menu">
+  <div class="section-heading reveal"><div><span class="eyebrow">PILIHAN HARI INI</span><h2>Menu <em>andalan</em></h2></div><p>Temukan menu favoritmu.<br>Semua harga dalam Rupiah.</p></div>
+  <div class="toolbar reveal">
+    <label class="search"><span class="sr">Cari menu</span><input id="searchInput" type="search" placeholder="Cari menu… (ayam, lele, es teh)" autocomplete="off"></label>
+    <label class="sort"><span class="sr">Urutkan</span><select id="sortSelect"><option value="default">Urutan toko</option><option value="low">Harga terendah</option><option value="high">Harga tertinggi</option><option value="az">Nama A–Z</option></select></label>
+  </div>
+  <div class="filters" id="filters" role="tablist" aria-label="Kategori menu"><button class="filter active" data-cat="Semua">Semua</button></div>
+  <div class="menu-grid" id="menuGrid" aria-live="polite"></div>
+</section>
+
+<section class="steps section" id="cara-pesan">
+  <div class="section-heading reveal"><div><span class="eyebrow">CARA PESAN</span><h2>Tiga langkah, <em>langsung makan.</em></h2></div></div>
+  <ol class="step-grid">
+    <li class="reveal"><b>1</b><h3>Pilih menu</h3><p>Telusuri menu, tekan “Tambah” pada hidangan favoritmu.</p></li>
+    <li class="reveal"><b>2</b><h3>Isi pesanan</h3><p>Buka keranjang, pilih makan di tempat, bawa pulang, atau antar, lalu isi nama.</p></li>
+    <li class="reveal"><b>3</b><h3>Konfirmasi WhatsApp</h3><p>Pesananmu otomatis tersusun rapi di WhatsApp — tinggal kirim.</p></li>
+  </ol>
+</section>
+
+<section class="promo section"><div><span class="eyebrow">MAKAN ENAK NGGAK HARUS RIBET</span><h2>Lagi lapar?<br><em>Yuk, pesan sekarang.</em></h2><p>Pilih menu favorit, masukkan ke keranjang, lalu lanjutkan pesanan melalui WhatsApp.</p><a href="#menu" class="light-btn">Mulai pesan ↗</a></div><div class="promo-stamp" aria-hidden="true">ENAK<br><small>SETIAP</small><br>SUAP!</div></section>
+
+<section class="about section" id="tentang">
+  <div class="about-photo reveal"><img loading="lazy" src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=85" alt="Hidangan rumahan" width="900" height="390"></div>
+  <div class="reveal"><span class="eyebrow">CERITA ZAHRA PENYET</span><h2>Sederhana dalam sajian, istimewa dalam <em>rasa.</em></h2><p>Zahra Penyet hadir untuk menemani waktu makanmu dengan hidangan penyetan yang nikmat, sambal menggugah selera, dan pelayanan yang hangat.</p><div class="about-points"><span>✓ Dibuat dengan sepenuh hati</span><span>✓ Pilihan menu untuk semua</span><span>✓ Praktis dipesan lewat WhatsApp</span></div></div>
+</section>
+
+<section class="contact section" id="kontak">
+  <span class="eyebrow">KAMI TUNGGU PESANANMU</span><h2>Makan enak dimulai <em>dari sini.</em></h2><p>Hubungi kami untuk pemesanan dan informasi lebih lanjut.</p>
+  <div class="contact-cards">
+    <div><small>WHATSAPP</small><b id="contactPhone">—</b></div>
+    <div><small>ALAMAT</small><b id="contactAddress">—</b><a class="mini-link" id="contactMap" href="#" target="_blank" rel="noopener" hidden>Buka di Google Maps ↗</a></div>
+    <div><small>JAM BUKA</small><b id="contactHours">—</b><span class="open-dot" id="contactStatus" hidden></span></div>
+  </div>
+  <div class="contact-actions"><a class="primary-btn" id="contactWa" href="#" target="_blank" rel="noopener">Chat WhatsApp ↗</a><a class="outline-btn big" id="contactIg" href="#" target="_blank" rel="noopener" hidden>Instagram ↗</a></div>
+</section>
+</main>
+
+<footer><a class="brand" href="#top"><img class="brand-logo" src="assets/images/logo-zahra-penyet.png" alt="Logo Zahra Penyet"><span class="brand-copy">ZAHRA <b>PENYET</b><small>RASA JUARA, HARGA BERSAHABAT</small></span></a><span>© <span id="year"></span> Zahra Penyet. Dibuat dengan ♥</span></footer>
+
+<a class="wa-fab" id="waFab" href="#" target="_blank" rel="noopener" aria-label="Chat WhatsApp" hidden><svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.8 14.2c-.2.7-1.4 1.3-1.9 1.3-.5.1-1.1.1-1.8-.1-.4-.1-.9-.3-1.5-.6-2.6-1.1-4.3-3.8-4.4-4-.1-.2-1-1.3-1-2.5 0-1.2.6-1.8.9-2 .2-.2.5-.3.6-.3h.5c.2 0 .4 0 .5.4l.8 1.9c.1.1.1.3 0 .4l-.3.4-.3.4c-.1.1-.2.3-.1.5.1.2.6 1 1.3 1.6.9.8 1.7 1.1 1.9 1.2.2.1.4.1.5-.1l.7-.9c.2-.2.3-.2.5-.1l1.8.9c.2.1.3.2.4.3.1.1.1.6-.1 1.2Z"/></svg></a>
+<button class="cart-bar" id="cartBar" hidden><span><b id="cartBarCount">0</b> item</span><span class="cart-bar-total" id="cartBarTotal">Rp0</span><span>Lihat keranjang ↗</span></button>
+
+<div class="overlay" id="overlay"></div>
+<aside class="cart-drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-labelledby="cartTitle" aria-hidden="true">
+  <div class="drawer-head"><div><span class="eyebrow">PESANANMU</span><h3 id="cartTitle">Keranjang</h3></div><button class="close-btn" id="closeCart" aria-label="Tutup keranjang">×</button></div>
+  <div class="drawer-scroll">
+    <div id="cartItems" class="cart-items"></div>
+    <form id="orderForm" class="order-form" autocomplete="on" novalidate>
+      <fieldset class="type-picker" id="typePicker"><legend>Jenis pesanan</legend><div id="typeOptions"></div></fieldset>
+      <label class="customer-label"><span>Nama pemesan <em>*</em></span><input id="customerName" name="name" placeholder="Nama kamu" autocomplete="name" maxlength="60"></label>
+      <label class="customer-label"><span>No. WhatsApp kamu <small>(opsional)</small></span><input id="customerPhone" name="tel" type="tel" inputmode="tel" placeholder="08xxxxxxxxxx" autocomplete="tel" maxlength="20"></label>
+      <label class="customer-label" id="addressWrap" hidden><span>Alamat pengantaran <em>*</em></span><textarea id="customerAddress" placeholder="Jalan, nomor rumah, patokan" maxlength="250"></textarea></label>
+      <label class="customer-label" id="paymentWrap"><span>Pembayaran</span><select id="paymentSelect"></select></label>
+      <label class="customer-label"><span>Catatan pesanan</span><textarea id="orderNote" placeholder="Contoh: sambal dipisah, tidak pedas" maxlength="300"></textarea></label>
+      <div class="quick-notes" id="quickNotes"><button type="button">Tidak pedas</button><button type="button">Extra pedas</button><button type="button">Sambal dipisah</button><button type="button">Tanpa lalapan</button></div>
+      <input type="text" id="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" class="hp">
+    </form>
+  </div>
+  <div class="cart-bottom">
+    <div class="sum-row"><span>Subtotal</span><b id="cartSubtotal">Rp0</b></div>
+    <div class="sum-row" id="feeRow" hidden><span>Ongkir</span><b id="cartFee">—</b></div>
+    <div class="total"><span>Total</span><b id="cartTotal">Rp0</b></div>
+    <p class="notice" id="cartNotice" hidden></p>
+    <button class="primary-btn checkout" id="checkout" type="button">Pesan via WhatsApp ↗</button>
+    <small class="fineprint">Pesanan dicatat di sistem Zahra Penyet lalu dikirim ke WhatsApp warung.</small>
+  </div>
+</aside>
+
+<div class="modal" id="orderModal" hidden role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-card"><div class="check">✓</div><h3 id="modalTitle">Pesanan diterima!</h3><p id="modalText"></p><div class="modal-id" id="modalId"></div>
+  <a class="primary-btn" id="modalWa" href="#" target="_blank" rel="noopener">Chat warung (opsional) ↗</a><button class="outline-btn big" id="modalClose" type="button">Tutup</button><small class="fineprint">Jika notifikasi otomatis aktif, pesanan langsung diteruskan ke WhatsApp warung. Simpan nomor pesanan untuk referensi.</small></div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="assets/js/config.js"></script><script src="assets/js/app.js"></script>
+</body>
+</html>

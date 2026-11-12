@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="id"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow">
+<title>Admin | Zahra Penyet</title><link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css"></head>
+<body class="admin-body">
+<header class="topbar admin-top"><a class="brand" href="index.html"><img class="brand-logo" src="assets/images/logo-zahra-penyet.png" alt="Logo Zahra Penyet"><span class="brand-copy">ZAHRA <b>PENYET</b><small>ADMIN DASHBOARD</small></span></a><a class="text-link" href="index.html">← Lihat website</a></header>
+
+<main class="admin-wrap">
+<section id="loginPanel" class="login-card">
+  <span class="eyebrow">AREA PENGELOLA</span><h1>Selamat datang,<br><em>Admin Zahra.</em></h1><p>Masuk untuk mengelola pesanan, menu, dan informasi warung.</p>
+  <form id="loginForm"><label><span>PIN Admin</span><input id="adminPin" type="password" inputmode="numeric" autocomplete="current-password" placeholder="Masukkan PIN" required></label><button class="primary-btn" type="submit">Masuk dashboard ↗</button><p id="loginError" class="error" role="alert"></p></form>
+</section>
+
+<section id="dashboard" hidden>
+  <div class="dash-heading"><div><span class="eyebrow">PENGELOLAAN WARUNG</span><h1>Dashboard <em>Zahra.</em></h1><p>Kelola pesanan, menu, dan informasi yang tampil di website.</p></div>
+    <div class="dash-actions"><button id="soundToggle" class="outline-btn" type="button">🔔 Suara pesanan: aktif</button><button id="logout" class="outline-btn" type="button">Keluar</button></div></div>
+
+  <div class="dash-stats">
+    <div><small>PESANAN HARI INI</small><b id="statToday">0</b></div>
+    <div><small>OMZET HARI INI</small><b id="statRevenue">Rp0</b></div>
+    <div class="hot"><small>PERLU DIPROSES</small><b id="statNew">0</b></div>
+    <div><small>MENU AKTIF</small><b id="statActive">0</b></div>
+  </div>
+
+  <nav class="tabs" role="tablist">
+    <button class="tab active" data-tab="orders" role="tab">Pesanan <span class="tab-badge" id="tabBadge" hidden>0</span></button>
+    <button class="tab" data-tab="menu" role="tab">Menu</button>
+    <button class="tab" data-tab="settings" role="tab">Pengaturan</button>
+  </nav>
+
+  <!-- ===== PESANAN ===== -->
+  <section id="tab-orders" class="tab-pane">
+    <div class="orders-toolbar">
+      <label><span>Status</span><select id="fStatus"><option value="aktif">Sedang berjalan</option><option value="all">Semua</option><option>Baru</option><option>Diproses</option><option>Siap</option><option>Selesai</option><option>Batal</option></select></label>
+      <label><span>Periode</span><select id="fRange"><option value="today">Hari ini</option><option value="7">7 hari</option><option value="30">30 hari</option><option value="all">Semua</option></select></label>
+      <div class="toolbar-actions"><button class="outline-btn" id="refreshOrders" type="button">Muat ulang</button><button class="outline-btn" id="exportCsv" type="button">Unduh CSV</button></div>
+    </div>
+    <div class="orders-columns">
+      <div id="ordersList" class="orders-list"></div>
+      <aside class="panel side-panel"><div class="panel-title"><h2>Menu terlaris</h2><span class="eyebrow">PERIODE TERPILIH</span></div><div id="topItems"></div><div class="side-sum"><div><small>PESANAN</small><b id="sumCount">0</b></div><div><small>OMZET</small><b id="sumRevenue">Rp0</b></div></div><p class="hint">Omzet tidak menghitung pesanan berstatus Batal. Halaman otomatis memeriksa pesanan baru tiap 30 detik.</p></aside>
+    </div>
+  </section>
+
+  <!-- ===== MENU ===== -->
+  <section id="tab-menu" class="tab-pane" hidden>
+    <div class="admin-columns">
+      <section class="panel"><div class="panel-title"><h2 id="formTitle">Tambah menu</h2><span class="eyebrow">KATALOG</span></div>
+      <form id="menuForm"><input type="hidden" id="menuId">
+        <label><span>Nama menu</span><input id="menuName" required maxlength="80" placeholder="Contoh: Ayam Penyet"></label>
+        <div class="two-fields"><label><span>Harga (Rp)</span><input id="menuPrice" type="number" min="0" step="500" required placeholder="18000"></label><label><span>Harga coret <small>(opsional, promo)</small></span><input id="menuOrig" type="number" min="0" step="500" placeholder="22000"></label></div>
+        <div class="two-fields"><label><span>Kategori</span><input id="menuCategory" list="catList" required maxlength="30" placeholder="Penyetan"><datalist id="catList"></datalist></label><label><span>Label</span><select id="menuBadge"><option value="">— tanpa label —</option><option>Best Seller</option><option>Favorit</option><option>Baru</option><option>Pedas</option><option>Promo</option></select></label></div>
+        <label><span>Foto menu</span><div class="img-row"><img id="imgPreview" alt="" hidden><div class="img-fields"><input id="menuImage" type="url" placeholder="https://… (atau unggah foto)"><label class="outline-btn upload-btn"><span>Unggah foto</span><input id="menuFile" type="file" accept="image/*" hidden></label></div></div><small id="uploadMsg" class="hint"></small></label>
+        <label><span>Deskripsi</span><textarea id="menuDescription" maxlength="300" placeholder="Deskripsi singkat menu"></textarea></label>
+        <div class="two-fields"><label><span>Urutan tampil <small>(angka kecil = di atas)</small></span><input id="menuSort" type="number" placeholder="1"></label><label class="checkline"><input id="menuAvailable" type="checkbox" checked> Menu tersedia</label></div>
+        <div class="form-actions"><button class="primary-btn" type="submit" id="saveMenuBtn">Simpan menu</button><button class="outline-btn" type="button" id="resetForm">Bersihkan</button></div><p id="formMessage" class="success" role="status"></p>
+      </form></section>
+      <section class="panel"><div class="panel-title"><h2>Daftar menu</h2><button class="outline-btn" id="refreshMenu" type="button">Muat ulang</button></div>
+        <input id="menuSearch" class="list-search" type="search" placeholder="Cari menu…"><div id="adminMenuList" class="admin-menu-list"></div></section>
+    </div>
+  </section>
+
+  <!-- ===== PENGATURAN ===== -->
+  <section id="tab-settings" class="tab-pane" hidden>
+    <section class="panel settings-panel"><div class="panel-title"><h2>Informasi warung</h2><span class="eyebrow">KONTAK, JAM &amp; PEMESANAN</span></div>
+    <form id="settingsForm">
+      <h3 class="group">Kontak &amp; lokasi</h3>
+      <div class="two-fields"><label><span>Nomor WhatsApp</span><input id="sPhone" placeholder="08xxxxxxxxxx atau 62xxxxxxxxxx"></label><label><span>Instagram <small>(username)</small></span><input id="sInstagram" placeholder="zahra.penyet"></label></div>
+      <label><span>Alamat warung</span><input id="sAddress" maxlength="300" placeholder="Alamat lengkap Zahra Penyet"></label>
+      <label><span>Link Google Maps <small>(opsional — kosong = dibuat otomatis dari alamat)</small></span><input id="sMaps" type="url" placeholder="https://maps.app.goo.gl/…"></label>
+      <h3 class="group">Jam &amp; status buka</h3>
+      <label><span>Teks jam buka <small>(tampil di website)</small></span><input id="sHours" placeholder="Setiap hari, 10.00–22.00"></label>
+      <div class="two-fields three"><label><span>Jam buka</span><input id="sOpen" type="time"></label><label><span>Jam tutup</span><input id="sClose" type="time"></label><label><span>Mode</span><select id="sMode"><option value="auto">Otomatis sesuai jam</option><option value="open">Paksa BUKA</option><option value="closed">Paksa TUTUP (pesanan ditolak)</option></select></label></div>
+      <p class="hint">Isi jam buka &amp; tutup agar label “Buka/Tutup” muncul otomatis di website (zona waktu WIB). Pakai “Paksa TUTUP” saat libur mendadak atau kehabisan bahan.</p>
+      <h3 class="group">Pemesanan</h3>
+      <fieldset class="types-check"><legend>Jenis pesanan yang dilayani</legend><label><input type="checkbox" name="otype" value="Makan di tempat"> Makan di tempat</label><label><input type="checkbox" name="otype" value="Bawa pulang"> Bawa pulang</label><label><input type="checkbox" name="otype" value="Antar"> Antar / delivery</label></fieldset>
+      <div class="two-fields three"><label><span>Ongkir flat (Rp)</span><input id="sFee" type="number" min="0" placeholder="kosong = konfirmasi via WA"></label><label><span>Minimal pesan (Rp)</span><input id="sMin" type="number" min="0" placeholder="0"></label><label><span>Metode bayar <small>(pisahkan koma)</small></span><input id="sPay" placeholder="Tunai, QRIS, Transfer"></label></div>
+      <label><span>Pengumuman di bagian atas website <small>(opsional)</small></span><input id="sAnnounce" maxlength="200" placeholder="Contoh: Promo Jumat — gratis es teh untuk Paket Komplit!"></label>
+      <button class="primary-btn" type="submit">Simpan informasi</button><p id="settingsMessage" class="success" role="status"></p>
+    </form></section>
+    <section class="panel settings-panel"><div class="panel-title"><h2>Keamanan</h2><span class="eyebrow">GANTI PIN ADMIN</span></div>
+    <form id="pinForm"><div class="two-fields three"><label><span>PIN saat ini</span><input id="pinCur" type="password" inputmode="numeric" autocomplete="current-password" required></label><label><span>PIN baru <small>(6–12 angka)</small></span><input id="pinNew" type="password" inputmode="numeric" autocomplete="new-password" required></label><label><span>Ulangi PIN baru</span><input id="pinNew2" type="password" inputmode="numeric" autocomplete="new-password" required></label></div>
+    <button class="primary-btn" type="submit">Ganti PIN</button><p id="pinMessage" class="success" role="status"></p></form></section>
+  </section>
+</section>
+</main>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="assets/js/config.js"></script><script src="assets/js/admin.js"></script>
+</body></html>
